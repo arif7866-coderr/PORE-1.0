@@ -56,7 +56,7 @@ PORE-Model/
 ## ⚙️ How to Run Locally
 
 ### 1. Clone Repository
-git clone https://github.com/your-username/PORE-Model.git  
+git clone https://github.com/arif7866-coderr/PORE-1.0.git  
 cd PORE-Model
 
 ### 2. Install Dependencies
