@@ -1,55 +1,126 @@
-# 🚀 PORE 1.0 – Employee Attrition Prediction Web App
+# PORE 1.0 – Predicting Employee Attrition Using a Stacked ML Model
 
-The **PORE (Predicting Organizational Retention & Efficiency) model is a machine-learning based system designed to predict employee attrition risk.  
-This repository contains the **Streamlit web application** that uses the trained model to generate predictions from uploaded HR datasets.
-
----
-
-## 🧠 About the PORE Model
-
-PORE 1.0 helps HR teams:
-
-- Predict which employees may leave an organization soon  
-- Identify high-risk employees  
-- Understand trends in employee behavior  
-- Make proactive data-driven decisions  
-
-The model uses:
-
-- **Stacked Ensemble Learning**
-- **Scikit-learn**
-- **StandardScaler**
-- **Feature engineering on HR attributes**
-
-The trained model file (`stacked_attrition_model.pkl`) is stored on **Google Drive** and automatically downloaded by the app.
+PORE (Predicting Organization Retention & Efficiency) is a machine-learning powered employee attrition prediction system.  
+It uses a stacked ensemble model combining multiple algorithms for higher accuracy.  
+This repository includes the trained model, preprocessing pipeline, and a full Streamlit web app.
 
 ---
 
-## 🌐 Live Streamlit App  
-(Add your link here after deployment)
-
-## 🛠️ Features of the App
-
-- 📤 Upload employee CSV data  
-- 👀 Preview dataset  
-- 🤖 Predict attrition using PORE model  
-- 📊 View prediction probabilities  
-- 📥 Download results with predictions added  
+## 🚀 Key Features
+- Predicts whether an employee is likely to leave the organization  
+- Stacked ensemble (Random Forest + XGBoost + Gradient Boosting)  
+- Logistic Regression as meta-learner  
+- CSV upload or manual input  
+- Auto-scaled and encoded preprocessing pipeline  
+- Streamlit UI  
+- Ready for deployment  
 
 ---
 
-## 🧪 Tech Stack
+## 🧠 Model Architecture
 
-- Python  
-- Streamlit  
-- Pandas, NumPy  
-- Scikit-learn  
-- Requests (to download model)  
+### Base Models
+- Random Forest Classifier  
+- XGBoost Classifier  
+- Gradient Boosting Classifier  
+
+### Meta Model
+- Logistic Regression
+
+### Preprocessing
+- StandardScaler for numerical features  
+- One-Hot Encoding for categorical features  
+- train_columns.pkl ensures column order during prediction  
 
 ---
 
-## ▶️ How to Run Locally
+## 📁 Repository Structure
 
-1. Clone the repo:
-```bash
-git clone https://github.com/your-username/PORE-1.0.git
+PORE-Model/
+│
+├── models/
+│   ├── stacked_attrition_model.pkl
+│   ├── scaler.pkl
+│   ├── train_columns.pkl
+│
+├── app/
+│   ├── streamlit_app.py
+│
+├── data/
+│   └── sample_input.csv
+│
+└── README.md
+
+---
+
+## ⚙️ How to Run Locally
+
+### 1. Clone Repository
+git clone https://github.com/your-username/PORE-Model.git  
+cd PORE-Model
+
+### 2. Install Dependencies
+pip install -r requirements.txt
+
+### 3. Run the Streamlit App
+streamlit run streamlit_app.py
+
+---
+
+## 📤 Using the App
+
+### A. Upload CSV
+- Upload employee dataset  
+- Auto preprocessing + prediction + probability
+  
+---
+
+## 📊 Model Output
+- Attrition Prediction: Yes / No  
+- Probability Score  
+- Key Influencing Features  
+
+---
+
+## 🧪 Model Training Details
+- Cleaned dataset  
+- Missing value handling  
+- Scaling + Encoding  
+- Train/Test split 80/20  
+
+### Evaluation Metrics (example)
+| Metric | Score |
+|--------|--------|
+| Accuracy | 0.87 |
+| ROC-AUC | 0.92 |
+| F1-Score | 0.84 |
+
+(Replace with your actual metrics)
+
+---
+
+## 🌐 Deployment Options
+- Streamlit Cloud  
+- Render  
+- HuggingFace Spaces  
+- AWS EC2  
+
+---
+
+## 📦 Requirements
+streamlit  
+pandas  
+numpy  
+scikit-learn  
+xgboost  
+joblib  
+
+---
+
+## 🤝 Contributing
+Issues and pull requests are welcome.
+
+---
+
+## 📜 License
+MIT License
